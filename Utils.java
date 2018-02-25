@@ -6,7 +6,7 @@ import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 
 
-public class ReusableMethods {
+public class Utils {
 		
 	public static XmlPath rawToXML(Response r)
 	
@@ -32,7 +32,7 @@ public class ReusableMethods {
     {
 		RestAssured.baseURI= "http://localhost:8080";
 		Response res=given().header("Content-Type", "application/json").
-		body("{ \"username\": \"rahulonlinetutor\", \"password\": \"Jira12345\" }").
+		body("{ \"username\": \"SPSankar\", \"password\": \"\" }").
 		when().
 		post("/rest/auth/1/session").then().statusCode(200).
 		extract().response();
