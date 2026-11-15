@@ -1,0 +1,6 @@
+[
+  { "name": "Wrong status code",   "matchedStatuses": ["failed"], "messageRegex": ".*status code.*" },
+  { "name": "Wrong response data", "matchedStatuses": ["failed"], "messageRegex": ".*(JSON path|Expected|schema).*" },
+  { "name": "Too slow",            "matchedStatuses": ["failed"], "messageRegex": ".*response time.*" },
+  { "name": "Cannot reach the API","matchedStatuses": ["broken", "failed"], "messageRegex": ".*(Connection refused|UnknownHost|timed out).*" }
+]
