@@ -16,15 +16,15 @@
     <!-- Test libraries -->
     <rest-assured.version>6.3.0</rest-assured.version>
     <testng.version>7.12.0</testng.version>
-    <jackson.version>2.21.4</jackson.version>
+    <jackson.version>2.23.0</jackson.version>
     <extentreports.version>5.1.2</extentreports.version>
-    <allure.version>3.0.0</allure.version>
+    <allure.version>3.1.1</allure.version>
     <wiremock.version>3.13.2</wiremock.version>
 
     <!-- Build plugins (stay on Surefire 3.5.x: 3.6.0 drops TestNG suiteXmlFiles) -->
-    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-    <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
-    <allure-maven.version>3.0.2</allure-maven.version>
+    <maven-compiler-plugin.version>3.16.0</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>3.6.1</maven-surefire-plugin.version>
+    <allure-maven.version>3.1.0</allure-maven.version>
 
     <!-- Run settings, override on the command line: -Denv=uat -Dgroups=smoke -->
     <env>mock</env>
