@@ -63,13 +63,13 @@ public class ApiReportFilter implements Filter {
                                       String details, String requestBody, String responseBody) {
         try {
             Allure.step(title + " (" + response.getTime() + " ms)", () -> {
-                Allure.addAttachment("Request headers", "text/plain", details, ".txt");
+                Allure.attachment("Request headers", "text/plain", details);
                 if (requestBody != null && !requestBody.isBlank()) {
-                    Allure.addAttachment("Request body", "application/json", requestBody, ".json");
+                    Allure.attachment("Request body", "application/json", requestBody);
                 }
                 if (responseBody != null) {
-                    Allure.addAttachment("Response body", isJson(response) ? "application/json" : "text/plain",
-                            responseBody, isJson(response) ? ".json" : ".txt");
+                    Allure.attachment("Response body", isJson(response) ? "application/json" : "text/plain",
+                            responseBody);
                 }
             });
         } catch (RuntimeException e) {
