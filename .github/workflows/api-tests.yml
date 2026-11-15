@@ -41,7 +41,7 @@ jobs:
           java-version: "17"
           cache: maven
 
-      - uses: actions/setup-node@v4   # Allure 3 report generator runs on Node.js
+      - uses: actions/setup-node@v7   # Allure 3 report generator runs on Node.js
         with:
           node-version: "22"
 
