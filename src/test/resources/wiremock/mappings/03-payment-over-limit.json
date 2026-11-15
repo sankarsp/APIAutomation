@@ -1,0 +1,16 @@
+{
+  "priority": 2,
+  "request": {
+    "method": "POST",
+    "urlPath": "/payments",
+    "headers": { "Authorization": { "matches": "^Bearer .+" } },
+    "bodyPatterns": [
+      { "matchesJsonPath": { "expression": "$.amount", "matches": "^[0-9]{6,}(\\.[0-9]+)?$" } }
+    ]
+  },
+  "response": {
+    "status": 422,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": { "code": "LIMIT_EXCEEDED", "message": "Amount is above the single-payment limit of 99999.99" }
+  }
+}

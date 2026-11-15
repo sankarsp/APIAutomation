@@ -1,0 +1,14 @@
+# Keeps Rest-Assured, TestNG, Extent Reports and the GitHub Actions up to date with weekly pull requests.
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      test-libraries:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly

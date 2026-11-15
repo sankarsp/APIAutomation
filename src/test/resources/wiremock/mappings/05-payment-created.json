@@ -1,0 +1,17 @@
+{
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPath": "/payments",
+    "headers": {
+      "Authorization": { "matches": "^Bearer .+" },
+      "Idempotency-Key": { "matches": ".+" }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": { "Content-Type": "application/json; charset=utf-8" },
+    "body": "{\n  \"paymentId\": \"PAY-{{request.headers.[Idempotency-Key]}}\",\n  \"status\": \"ACCEPTED\",\n  \"amount\": {{jsonPath request.body '$.amount'}},\n  \"currency\": \"{{jsonPath request.body '$.currency'}}\",\n  \"creditorAccount\": \"{{jsonPath request.body '$.creditorAccount'}}\",\n  \"creditorName\": \"{{{jsonPath request.body '$.creditorName'}}}\",\n  \"debtorAccountMasked\": \"******{{regexExtract (jsonPath request.body '$.debtorAccount') '[0-9]{4}$'}}\",\n  \"createdAt\": \"{{now}}\"\n}",
+    "transformers": ["response-template"]
+  }
+}

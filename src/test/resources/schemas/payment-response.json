@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Payment response",
+  "type": "object",
+  "required": ["paymentId", "status", "amount", "currency", "creditorAccount", "debtorAccountMasked", "createdAt"],
+  "properties": {
+    "paymentId":           { "type": "string", "minLength": 1 },
+    "status":              { "type": "string", "enum": ["ACCEPTED", "PENDING", "REJECTED"] },
+    "amount":              { "type": ["number", "string"] },
+    "currency":            { "type": "string", "pattern": "^[A-Z]{3}$" },
+    "creditorAccount":     { "type": "string", "minLength": 1 },
+    "creditorName":        { "type": "string" },
+    "debtorAccountMasked": { "type": "string", "pattern": "^\\*+[0-9]{4}$" },
+    "createdAt":           { "type": "string" }
+  }
+}

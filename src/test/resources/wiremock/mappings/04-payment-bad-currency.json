@@ -1,0 +1,16 @@
+{
+  "priority": 3,
+  "request": {
+    "method": "POST",
+    "urlPath": "/payments",
+    "headers": { "Authorization": { "matches": "^Bearer .+" } },
+    "bodyPatterns": [
+      { "matchesJsonPath": { "expression": "$.currency", "doesNotMatch": "^[A-Z]{3}$" } }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": { "code": "INVALID_CURRENCY", "message": "Currency must be a 3-letter ISO 4217 code" }
+  }
+}
